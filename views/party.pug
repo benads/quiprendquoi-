@@ -21,4 +21,6 @@ each item in items
   span ecrit par #{item.user}
   form(method="post" action=`/party/${id}/items/${item._id}?_method=DELETE`)
     button(type="submit") Supprimer l'item
+else 
+  li Il n'y pas d'items crées pour cet événement
   
