@@ -4,10 +4,13 @@ const dotenv = require('dotenv').config();
 const port = process.env.PORT
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const methodOverride = require('method-override');
 
 app.set('view engine', 'pug');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(methodOverride('_method'));
 
 app.get('/', function(req, res) {
   res.render('index', {title: 'Accueil'});
@@ -46,5 +49,12 @@ app.post('/party/:id/items', (req, res) => {
   ;
 });
 
+app.delete('/party/:id/items/:itemId', (req, res) => {
+  axios
+    .delete(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.itemId}`)
+    .then((data) => res.redirect(`/party/${req.params.id}`))
+    .catch((err) => console.log(err))
+  ;
+});
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));

@@ -5,12 +5,6 @@ h3 Créé par #{party.author}
 label(for="url") Partagez l'événement
 input(id="url" value=`${url}`)
 
-h3 Liste des items
-each item in items
-  li= item.name 
-  span ecrit par #{item.user}
-br
-
 form(method="post" action=`/party/${id}/items`)
   div
     label(for="name") Nom de l'item 
@@ -18,4 +12,13 @@ form(method="post" action=`/party/${id}/items`)
     label(for="user") Auteur de l'item
     input(name="user" id="user" required minlength="3" type="text" placeholder="Auteur de l'événement")
   button(type="submit") Créer
+
+br
+
+h3 Liste des items
+each item in items
+  li= item.name 
+  span ecrit par #{item.user}
+  form(method="post" action=`/party/${id}/items/${item._id}?_method=DELETE`)
+    button(type="submit") Supprimer l'item
   
