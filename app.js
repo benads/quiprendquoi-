@@ -15,7 +15,15 @@ app.get('/', function(req, res) {
 
 app.get('/party/:id', function(req, res) {
   const id = req.params.id;
-  res.render('party', { title: id });
+  axios
+  .get(`${process.env.API_URL}/party/${id}`)
+  .then(({ data }) =>
+    res.render('party', {
+      party: data,
+      title: data.name
+    }),
+  )
+  .catch((err) => console.log(err));
 });
 
 app.post('/party', function(req, res) {
