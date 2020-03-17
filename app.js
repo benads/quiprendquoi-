@@ -19,6 +19,7 @@ app.get('/party/:id', function(req, res) {
   .get(`${process.env.API_URL}/party/${id}`)
   .then(({ data }) =>
     res.render('party', {
+      id: id,
       party: data,
       title: data.name,
       url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`
@@ -33,5 +34,15 @@ app.post('/party', function(req, res) {
     .then(({data}) => res.redirect(`/party/${data._id}`))
     .catch((err) => res.send(err));
 });
+
+app.post('/party/:id/items', (req, res) => {
+  const id = req.params.id;
+  axios
+    .post(`${process.env.API_URL}/party/${id}/items`, req.body) 
+    .then( () => res.redirect(`/party/${id}`))
+    .catch( (err) => console.log(err))
+  ;
+});
+
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
