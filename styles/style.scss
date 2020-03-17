@@ -1,13 +1,7 @@
 @import './vendors/reset.scss';
+@import './blocs/newParty.scss';
+@import './config/medias.scss';
 
-form {
-    border: 1px solid blue;
-  
-    div {
-      border: 1px solid red;
-    }
-  }
-
-p {
-    color: grey;
+body {
+    margin: 10px;
 }

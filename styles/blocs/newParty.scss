@@ -11,8 +11,8 @@
   }
 
   label {
-       @include medium {
-          display: block;
+    display: block;
+       @include medium {   
           place-self: center end;
      }
   }
