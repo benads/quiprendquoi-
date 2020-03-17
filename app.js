@@ -15,6 +15,7 @@ app.get('/', function(req, res) {
 
 app.get('/party/:id', function(req, res) {
   const id = req.params.id;
+  
   axios
   .get(`${process.env.API_URL}/party/${id}`)
   .then(({ data }) =>
@@ -22,10 +23,11 @@ app.get('/party/:id', function(req, res) {
       id: id,
       party: data,
       title: data.name,
+      items: data.items,
       url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`
     }),
   )
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err))
 });
 
 app.post('/party', function(req, res) {
