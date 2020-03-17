@@ -3,52 +3,35 @@ require("babel-polyfill");
 
 const url = 'http://bastiencalou.fr:3000/party/5e70dd083d57b970f3812a96';
 
-let fetchApi = async fetchApi => {
+if(!localStorage.getItem('initData')) {
     fetch(url)
-        .then(lastresponse => lastresponse.json())
-        .then(lastresponse => JSON.stringify(lastresponse.items))
-        .then(async (response) => { return await response.json()})
-} 
-
-
-
-// if(window.fetch) {
-//     setTimeout(fetchApi, 5000)      
-// }
-
-async function oke() {
-    const response = await fetch(url, {});
-    const json = await response.json();
-    const lala = await json.items
-
-    return lala;
+    .then(lastresponse => lastresponse.json())
+    .then(lastresponse =>  localStorage.setItem('initData',JSON.stringify(lastresponse.items)))
 }
 
-var ol = null
+let repeatCall = [];
+   
 
-async function something() {
-    await oke()
-}
+console.log(repeatCall)
 
-// setInterval(something, 10000)
 
-console.log(something())
+console.log(localStorage.getItem('initData'))
+// console.log(typeof localStorage.getItem('initData'))
+// console.log(typeof repeatCall)
+setInterval(() => {
+    fetch(url)
+        .then(response => response.json()) 
+        .then(response => repeatCall.push(JSON.stringify(response.items)))
+    if(repeatCall.toString() !== localStorage.getItem('initData')) {
+        localStorage.setItem('initData', repeatCall.toString());
+             
+    }
 
-let da = [];
+    repeatCall.pop()
+}, 1000);
 
-da.push(something())
+    
+    
 
-// console.log(da)
-
-const initData = something() 
-
-// function nice (old, neww) {
-//     if(old === neww) {
-//         console.log('ok')
-//     } else {
-//         console.log('not ok')
-//     }
-// }
-
-// setInterval(nice(initData, something()), 100);
+    
 
