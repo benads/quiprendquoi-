@@ -13,6 +13,11 @@ app.get('/', function(req, res) {
   res.render('index', {title: 'Accueil'});
 });
 
+app.get('/party/:id', function(req, res) {
+  const id = req.params.id;
+  res.render('party', { title: id });
+});
+
 app.post('/party', function(req, res) {
   axios
     .post(`${process.env.API_URL}/party`, req.body)
