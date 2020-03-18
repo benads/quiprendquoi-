@@ -14,6 +14,7 @@ app.use(methodOverride('_method'));
 
 // STYLESHEET
 app.use(express.static('public'))
+app.use(express.static('pwa'))
 
 
 app.get('/', function(req, res) {
