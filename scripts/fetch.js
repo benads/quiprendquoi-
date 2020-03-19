@@ -10,23 +10,20 @@ if(!localStorage.getItem('initData')) {
 }
 
 let repeatCall = [];
-   
 
-console.log(repeatCall)
-
-
-console.log(localStorage.getItem('initData'))
-// console.log(typeof localStorage.getItem('initData'))
-// console.log(typeof repeatCall)
 setInterval(() => {
     fetch(url)
         .then(response => response.json()) 
-        .then(response => repeatCall.push(JSON.stringify(response.items)))
+        .then(response => { repeatCall.push(JSON.stringify(response.items))
     if(repeatCall.toString() !== localStorage.getItem('initData')) {
         localStorage.setItem('initData', repeatCall.toString());
-             
-    }
-
+        let item_created = response.items.length -1;
+        response.items.map( (h, index) => { 
+            if(index === item_created) { 
+                console.log(h.name) 
+            }
+        })
+    }})
     repeatCall.pop()
 }, 1000);
 
