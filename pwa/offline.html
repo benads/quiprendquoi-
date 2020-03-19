@@ -14,16 +14,15 @@
           cache.keys().then((keys) =>
             keys.forEach((key) => {
               const name = localStorage.getItem(key.url);
-  
               if (name) {
                 const $link = document.createElement('a');
                 $link.href = key.url;
                 $link.innerHTML = name;
                 document.body.appendChild($link);
-              }
+              } 
             }),
           ),
         );
-      </script>
+    </script>
   </body>
 </html>
