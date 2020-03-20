@@ -45,11 +45,11 @@ setInterval(() => {
 				let item_created = response.items.length - 1;
 				console.log(item_created);
 				// Notification authorization
-				// Notification.requestPermission();
+				Notification.requestPermission();
 				response.items.map((item, index) => {
 					if (index === item_created) {
 						// Send notification if user accept
-						// new Notification(`Un nouvel item à été ajouté : ${item.name}`);
+						new Notification(`Un nouvel item à été ajouté : ${item.name}`);
 						createElement(item._id, item.name);
 					}
 				});
