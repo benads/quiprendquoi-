@@ -4,17 +4,18 @@ h2= party.name
 h3 Créé par #{party.author}
 label(for="url") Partagez l'événement
 
-form(method="post" action=`/party/${id}/items`)
+
   div
     label(for="name") Nom de l'item 
     input(name="name" id="name" required minlength="3" type="text" placeholder="Nouvel an")
     label(for="user") Auteur de l'item
     input(name="user" id="user" required minlength="3" type="text" placeholder="Auteur de l'événement")
-  button(type="submit") Créer
+  button(id="btn") Créer
 
 br
 
 h3 Liste des items
+<div class="lds-dual-ring none"></div>
 div#notification
 div#lastNotification
 each item in items
@@ -23,6 +24,6 @@ each item in items
   form(method="post" action=`/party/${id}/items/${item._id}?_method=DELETE`)
     button(type="submit") Supprimer l'item
 else 
-  li Il n'y pas d'items crées pour cet événement
+  li(id='noItem') Il n'y pas d'items crées pour cet événement
   
 input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`XXX vous ivnite à rejoindre l\'événement ${party.name}`)
