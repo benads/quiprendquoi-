@@ -1,7 +1,7 @@
 require("babel-core/register");
 require("babel-polyfill");
 
-const url = "http://bastiencalou.fr:3000/party/5e70dd083d57b970f3812a96";
+const url = "http://bastiencalou.fr:3000/party/5e74e7a33d57b970f3813093";
 
 fetch(url)
 	.then(response => response.json())
@@ -10,25 +10,6 @@ fetch(url)
 	);
 
 let repeatCall = [];
-
-document.querySelector("#btn").addEventListener("click", function(e) {
-	fetch(`${url}/items`, {
-		method: "post",
-		headers: {
-			Accept: "application/json",
-			"Content-Type": "application/json",
-		},
-
-		//make sure to serialize your JSON body
-		body: JSON.stringify({
-			name: document.querySelector("#name").value,
-			author: document.querySelector("#user").value,
-		}),
-	}).then(() => {
-		document.querySelector(".lds-dual-ring").classList.remove("none");
-		document.querySelector(".lds-dual-ring").classList.add("isVisible");
-	});
-});
 
 setInterval(() => {
 	fetch(url)

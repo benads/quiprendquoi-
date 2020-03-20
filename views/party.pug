@@ -13,7 +13,7 @@ label(for="url") Partagez l'événement
     input(name="name" id="name" required minlength="3" type="text" placeholder="Nouvel an")
     label(for="user") Auteur de l'item
     input(name="user" id="user" required minlength="3" type="text" placeholder="Auteur de l'événement")
-  button(id="btn") Créer
+  button(id="btn" data-url=`${party._id}`) Créer
 
 br
 
@@ -24,8 +24,7 @@ div#lastNotification
 each item in items
   li= item.name 
   span ecrit par #{item.user}
-  form(method="post" action=`/party/${id}/items/${item._id}?_method=DELETE`)
-    button(type="submit") Supprimer l'item
+    button(data-url=`${item._id}` class='btnItem') Supprimer l'item
 else 
   li(id='noItem') Il n'y pas d'items crées pour cet événement
   
