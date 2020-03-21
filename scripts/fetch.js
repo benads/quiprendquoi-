@@ -50,10 +50,7 @@ let createElement = (itemId, itemName) => {
 	let newDiv = document.createElement("div");
 	let form = document.createElement("form");
 	form.setAttribute("method", "post");
-	form.setAttribute(
-		"action",
-		`/party/5e70dd083d57b970f3812a96/items/${itemId}?_method=DELETE`,
-	);
+	form.setAttribute("action", `${url}/${itemId}?_method=DELETE`);
 	let button = document.createElement("button");
 	button.innerHTML = "Supprimez";
 	button.setAttribute("type", "submit");
