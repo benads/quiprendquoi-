@@ -45,6 +45,8 @@ setInterval(() => {
 	repeatCall.pop();
 }, 5000);
 
+console.log(pathName);
+
 // Create element if new item added
 let createElement = (itemId, itemName) => {
 	console.log(`${url}/${itemId}?_method=DELETE`);
