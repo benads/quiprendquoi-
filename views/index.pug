@@ -11,3 +11,5 @@ form(method="post" action="/party").newParty
     input(name="date" id="date" type="date")
   button(type="submit") Créer
 
+each party in parties
+  li= party.name

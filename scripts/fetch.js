@@ -45,8 +45,6 @@ setInterval(() => {
 	repeatCall.pop();
 }, 5000);
 
-console.log(pathName);
-
 // Create element if new item added
 let createElement = (itemId, itemName) => {
 	console.log(`${url}/${itemId}?_method=DELETE`);
@@ -57,7 +55,6 @@ let createElement = (itemId, itemName) => {
 	let button = document.createElement("button");
 	button.innerHTML = "Supprimez";
 	button.setAttribute("type", "submit");
-
 	form.appendChild(button);
 	let newContent = document.createTextNode(itemName);
 	newDiv.appendChild(newContent);
