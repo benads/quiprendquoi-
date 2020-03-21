@@ -47,13 +47,15 @@ setInterval(() => {
 
 // Create element if new item added
 let createElement = (itemId, itemName) => {
+	console.log(`${url}/${itemId}?_method=DELETE`);
 	let newDiv = document.createElement("div");
 	let form = document.createElement("form");
 	form.setAttribute("method", "post");
-	form.setAttribute("action", `${url}/${itemId}?_method=DELETE`);
+	form.setAttribute("action", `${pathName}/items/${itemId}?_method=DELETE`);
 	let button = document.createElement("button");
 	button.innerHTML = "Supprimez";
 	button.setAttribute("type", "submit");
+
 	form.appendChild(button);
 	let newContent = document.createTextNode(itemName);
 	newDiv.appendChild(newContent);

@@ -2,8 +2,6 @@ let partyUrlId = document.querySelector("#btn").getAttribute("data-url");
 
 const url = `https://quiprendquoi-api.benjaminadida.fr/party/${partyUrlId}`;
 
-
-
 document.querySelector("#btn").addEventListener("click", function(e) {
 	fetch(`${url}/items`, {
 		method: "post",
@@ -11,8 +9,6 @@ document.querySelector("#btn").addEventListener("click", function(e) {
 			Accept: "application/json",
 			"Content-Type": "application/json",
 		},
-
-		//make sure to serialize your JSON body
 		body: JSON.stringify({
 			name: document.querySelector("#name").value,
 			author: document.querySelector("#user").value,

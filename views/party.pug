@@ -24,6 +24,7 @@ div#lastNotification
 each item in items
   li= item.name 
   span ecrit par #{item.user}
+  form(method="post" action=`/party/${party._id}/items/${item._id}?_method=DELETE`)
     button(data-url=`${item._id}` class='btnItem') Supprimer l'item
 else 
   li(id='noItem') Il n'y pas d'items crées pour cet événement
