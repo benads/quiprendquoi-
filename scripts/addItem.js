@@ -1,6 +1,8 @@
 let partyUrlId = document.querySelector("#btn").getAttribute("data-url");
 
-const url = `http://bastiencalou.fr:3000/party/${partyUrlId}`;
+const url = `https://quiprendquoi-api.benjaminadida.fr/party/${partyUrlId}`;
+
+
 
 document.querySelector("#btn").addEventListener("click", function(e) {
 	fetch(`${url}/items`, {

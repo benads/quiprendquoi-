@@ -1,6 +1,6 @@
 let partyUrlId = document.querySelector("#btn").getAttribute("data-url");
 let itemUrlId = document.querySelectorAll(".btnItem");
-const url = `http://bastiencalou.fr:3000/party/${partyUrlId}`;
+const url = `https://quiprendquoi-api.benjaminadida.fr/party/${partyUrlId}`;
 
 for (let index = 0; index < itemUrlId.length; index++) {
 	itemUrlId[index].addEventListener("click", function(e) {
@@ -12,3 +12,4 @@ for (let index = 0; index < itemUrlId.length; index++) {
 		});
 	});
 }
+

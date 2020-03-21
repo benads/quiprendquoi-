@@ -1,7 +1,9 @@
 require("babel-core/register");
 require("babel-polyfill");
 
-const url = "http://bastiencalou.fr:3000/party/5e74e7a33d57b970f3813093";
+let pathName = window.location.pathname;
+
+const url = `https://quiprendquoi-api.benjaminadida.fr${pathName}`;
 
 fetch(url)
 	.then(response => response.json())
@@ -24,7 +26,7 @@ setInterval(() => {
 			) {
 				localStorage.setItem("initData", repeatCall.toString());
 				let item_created = response.items.length - 1;
-				console.log(item_created);
+				console.log("item_created");
 				// Notification authorization
 				Notification.requestPermission();
 				response.items.map((item, index) => {
