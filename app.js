@@ -41,7 +41,7 @@ app.get("/party/:id", function(req, res) {
 				party: data,
 				title: data.name,
 				items: data.items,
-				url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`,
+				url: `${process.env.FRONT_URL}/party/${data._id}`,
 				baseUrl: process.env.FRONT_URL,
 			}),
 		)

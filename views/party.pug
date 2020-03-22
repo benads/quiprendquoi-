@@ -16,7 +16,8 @@ div.newParty__form--item
   input(name="name" id="name" required minlength="3" type="text" placeholder="Nouvel an")
   label(for="user") Auteur de l'item
   input(name="user" id="user" required minlength="3" type="text" placeholder="Auteur de l'événement")
-  button(id="btn" data-url=`${party._id}`).newParty__form--button Créer
+  div.button
+    button(id="btn" data-url=`${party._id}`).newParty__form--button Créer
 
 br
 
