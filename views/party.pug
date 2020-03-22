@@ -4,8 +4,10 @@ include ../partials/modalModifyItem.pug
 
 script.
   party = !{JSON.stringify(party)}
+  
+a(href="/")
+  img(src="/images/back.svg").return
 
-img(src="/images/back.svg").return
 
 h2.event--name 
   span.lil-title Nom de l'événement :  #{party.name}

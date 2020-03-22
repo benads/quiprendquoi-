@@ -92,4 +92,11 @@ app.delete("/party/:id/items/:itemId", (req, res) => {
 		.catch(err => console.log(err));
 });
 
+app.delete("/party/:id", (req, res) => {
+	axios
+		.delete(`${process.env.API_URL}/party/${req.params.id}`)
+		.then(data => res.redirect(`/`))
+		.catch(err => console.log(err));
+});
+
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
