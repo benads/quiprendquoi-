@@ -2,31 +2,33 @@ include ../partials/header.pug
 script.
   party = !{JSON.stringify(party)}
 
-h1 Qui prend quoi ?
+a(href="/")
+  img(src="/images/back.svg" style="width:30px").return
 h2= party.name
 h3 Créé par #{party.author}
-label(for="url") Partagez l'événement
+div.clipboard
+  input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous ivnite à rejoindre l\'événement ${party.name}`)
 
 
-  div
-    label(for="name") Nom de l'item 
-    input(name="name" id="name" required minlength="3" type="text" placeholder="Nouvel an")
-    label(for="user") Auteur de l'item
-    input(name="user" id="user" required minlength="3" type="text" placeholder="Auteur de l'événement")
-  button(id="btn" data-url=`${party._id}`) Créer
+div.newParty__form--item
+  label(for="name") Nom de l'item 
+  input(name="name" id="name" required minlength="3" type="text" placeholder="Nouvel an")
+  label(for="user") Auteur de l'item
+  input(name="user" id="user" required minlength="3" type="text" placeholder="Auteur de l'événement")
+  button(id="btn" data-url=`${party._id}`).newParty__form--button Créer
 
 br
 
 h3 Liste des items
-<div class="lds-dual-ring none"></div>
-div#notification
-div#lastNotification
+div.spinnerCenter
+  <div class="lds-ellipsis none"><div></div><div></div><div></div><div></div></div>
+div(id="lastNotification" class="fade")
 each item in items
-  li= item.name 
-  span ecrit par #{item.user}
-  form(method="post" action=`/party/${party._id}/items/${item._id}?_method=DELETE`)
-    button(data-url=`${item._id}` class='btnItem') Supprimer l'item
-else 
-  li(id='noItem') Il n'y pas d'items crées pour cet événement
-  
-input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`XXX vous ivnite à rejoindre l\'événement ${party.name}`)
+    div.item__box 
+      p= item.name
+      span ecrit par #{item.user}
+      form(method="post" action=`/party/${party._id}/items/${item._id}?_method=DELETE`)
+        button(data-url=`${item._id}` class='btnItem')
+          img(src="/images/delete.svg" style="width:30px")
+
+

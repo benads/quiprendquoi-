@@ -39,26 +39,25 @@ setInterval(() => {
 			}
 		})
 		.then(() => {
-			document.querySelector(".lds-dual-ring").classList.remove("isVisible");
-			document.querySelector(".lds-dual-ring").classList.add("none");
+			document.querySelector(".lds-ellipsis").classList.remove("isVisible");
+			document.querySelector(".lds-ellipsis").classList.add("none");
 		});
 	repeatCall.pop();
 }, 5000);
 
 // Create element if new item added
 let createElement = (itemId, itemName) => {
-	console.log(`${url}/${itemId}?_method=DELETE`);
-	let newDiv = document.createElement("div");
-	let form = document.createElement("form");
-	form.setAttribute("method", "post");
-	form.setAttribute("action", `${pathName}/items/${itemId}?_method=DELETE`);
-	let button = document.createElement("button");
-	button.innerHTML = "Supprimez";
-	button.setAttribute("type", "submit");
-	form.appendChild(button);
-	let newContent = document.createTextNode(itemName);
-	newDiv.appendChild(newContent);
-	newDiv.appendChild(form);
+	var div = document.createElement("div");
+	div.setAttribute("class", "item__box");
+	div.innerHTML = `
+		<p>${itemName}</p>
+		<form method="post" action="${pathName}/items/${itemId}?_method=DELETE">
+			<button data-url="${itemId}" class="btnItem"><img src="/images/delete.svg" style="width:30px"/></button>
+		</form>`;
 	let currentDiv = document.getElementById("lastNotification");
-	currentDiv.appendChild(newDiv);
+	currentDiv.appendChild(div);
+	// Animation
+	setTimeout(function() {
+		div.className = div.className + " show";
+	}, 100);
 };
