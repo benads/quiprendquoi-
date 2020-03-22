@@ -2,15 +2,11 @@
 
 ## Installation
 
-_À modifier si votre travail le nécessite_
-
 `npm install`
 
 `npm run start`
 
 ## Améliorations apportées
-
-_Quelques exemples (voir le TP)_
 
 - Affichage des items (`app.js`)
 - Ajout d'un item (`app.js`)
