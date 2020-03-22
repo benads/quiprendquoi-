@@ -54,3 +54,8 @@ body {
 .fade .item__box.show {
 	opacity: 1;
 }
+.header-party {
+	box-shadow: $shadow;
+	display: flex;
+	justify-content: space-between;
+}
