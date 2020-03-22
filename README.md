@@ -23,7 +23,7 @@ _Quelques exemples (voir le TP)_
 - Suppression d'un item avec fetch (`deleteItem.js`)
 - Meilleure présentation visuelle de façon général (j'ai fais ce que j'ai pu, j'ai du mal avec la design :( ) (`*.scss`)
 - Mise en prod de l'application [ici](https://quiprendquoi.benjaminadida.fr)
-- Mise en prod de l'API avec de légère modifs [ici](https://quiprendquoi-api.benjaminadida.fr)
+- Mise en prod de l'API avec une modif qui m'a été utile, afin de pouvoir tout les evenements crees, pour les lister [ici](https://quiprendquoi-api.benjaminadida.fr)
 
 ## Article personnel
 
