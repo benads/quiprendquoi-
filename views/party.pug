@@ -1,13 +1,14 @@
 include ../partials/header.pug
 script.
   party = !{JSON.stringify(party)}
-
-a(href="/")
-  img(src="/images/back.svg" style="width:30px").return
-h2= party.name
-h3 Créé par #{party.author}
-div.clipboard
-  input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous ivnite à rejoindre l\'événement ${party.name}`)
+div.header-party
+  div
+    a(href="/")
+      img(src="/images/back.svg" style="width:30px").return
+    h2= party.name
+    h3 Créé par #{party.author}
+  div.clipboard
+    input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous ivnite à rejoindre l\'événement ${party.name}`)
 
 
 div.newParty__form--item
