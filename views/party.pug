@@ -1,12 +1,13 @@
 include ../partials/header.pug
+include ../partials/modal.pug
 script.
   party = !{JSON.stringify(party)}
 
 h1 Qui prend quoi ?
 h2= party.name
 h3 Créé par #{party.author}
+button(data-url=urlApi)#btnModal Modifier
 label(for="url") Partagez l'événement
-
 
   div
     label(for="name") Nom de l'item 
@@ -29,4 +30,5 @@ each item in items
 else 
   li(id='noItem') Il n'y pas d'items crées pour cet événement
   
-input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`XXX vous ivnite à rejoindre l\'événement ${party.name}`)
+input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous ivnite à rejoindre l\'événement ${party.name}`)
+
