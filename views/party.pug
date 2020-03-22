@@ -5,9 +5,11 @@ include ../partials/modalModifyItem.pug
 script.
   party = !{JSON.stringify(party)}
 
-h2 
+img(src="/images/back.svg").return
+
+h2.event--name 
   span.lil-title Nom de l'événement :  #{party.name}
-h3 Créé par #{party.author}
+h3.event--author Créé par #{party.author}
 
 button(data-url=urlApi)#btnModal.btnModal Modifier
 
