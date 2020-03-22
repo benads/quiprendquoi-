@@ -1,0 +1,14 @@
+div.modal
+  div.bg-under-modal
+    h1 modal
+    a#closeModal close
+    div.newParty__fields
+    form(method="post" action=urlModif).newParty
+        div.newParty__fields
+            label(for="name") Nom de l'événement
+            input(name="name" id="nameModify" required minlength="3" placeholder="Nouvel an")
+            label(for="author" required) Votre pseudo
+            input(name="author" id="authorModify" required minlength="3" placeholder="John")
+            label(for="date") Date de l'événement
+            input(name="date" id="dateModify" type="date")
+            button(type="submit")#btnUpdate Créer

@@ -30,6 +30,14 @@ app.get("/", function(req, res) {
 		.catch(err => console.log(err));
 });
 
+app.patch("/party/:id", function(req, res) {
+	const id = req.params.id;
+	axios
+		.patch(`${process.env.API_URL}/party/${id}`, req.body)
+		.then(({ data }) => res.redirect(`/`))
+		.catch(err => res.send(err));
+});
+
 app.get("/party/:id", function(req, res) {
 	const id = req.params.id;
 
@@ -41,8 +49,11 @@ app.get("/party/:id", function(req, res) {
 				party: data,
 				title: data.name,
 				items: data.items,
+				urlModif: `/party/${data._id}?_method=PATCH`,
 				url: `${process.env.FRONT_URL}/party/${data._id}`,
+				urlApi: `https://quiprendquoi-api.benjaminadida.fr/party/${data._id}`,
 				baseUrl: process.env.FRONT_URL,
+
 			}),
 		)
 		.catch(err => console.log(err));
