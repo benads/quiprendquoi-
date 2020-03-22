@@ -12,4 +12,5 @@ form(method="post" action="/party").newParty
   button(type="submit") Créer
 
 each party in parties
-  li= party.name
+  a(href=url + "/party/" + party._id)
+    li= party.name

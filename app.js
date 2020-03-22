@@ -22,6 +22,7 @@ app.get("/", function(req, res) {
 		.get(`${process.env.API_URL}/party`)
 		.then(({ data }) => {
 			res.render("index", {
+				url: process.env.FRONT_URL,
 				parties: data,
 				title: "Accueil",
 			});
