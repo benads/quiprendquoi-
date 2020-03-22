@@ -1,18 +1,19 @@
 include ../partials/header.pug
 include ../partials/modal.pug
+include ../partials/modalModifyItem.pug
+
 script.
   party = !{JSON.stringify(party)}
 
-h2= party.name
+h2 
+  span.lil-title Nom de l'événement :  #{party.name}
 h3 Créé par #{party.author}
-label(for="url").share Partagez l'événement
 
 button(data-url=urlApi)#btnModal.btnModal Modifier
 
-div.header-party
-  div.clipboard
-    input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous ivnite à rejoindre l\'événement ${party.name}`)
 
+div.clipboard
+  input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous ivnite à rejoindre l\'événement ${party.name}`)
 
 div.newParty__form--item
   label(for="name") Nom de l'item 
@@ -34,9 +35,10 @@ each item in items
     div.item__box 
       p= item.name
       span ecrit par #{item.user}
-      form(method="post" action=`/party/${party._id}/items/${item._id}?_method=DELETE`)
-        button(data-url=`${item._id}` class='btnItem')
-          img(src="/images/delete.svg" style="width:30px")
-
-
+      div.icons
+        button(data-url=`${urlApi}/items/${item._id}` data-urlItem=`/party/${party._id}/items/${item._id}?_method=PATCH` class='btnItemModify')
+            img(src="/images/edit.svg" style="width:30px")
+        form(method="post" action=`/party/${party._id}/items/${item._id}?_method=DELETE`)
+          button(data-url=`${item._id}` class='btnItem')
+            img(src="/images/delete.svg" style="width:30px")
 

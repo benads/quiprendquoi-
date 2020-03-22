@@ -111,3 +111,16 @@ body {
 .share {
 	height: 30px;
 }
+
+.icons {
+	display: flex;
+}
+
+.closeIcon {
+	position: relative;
+	z-index: 13;
+	top: -14px;
+	width: 40px;
+	left: 570px;
+	cursor: pointer;
+}
