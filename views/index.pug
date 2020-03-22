@@ -8,7 +8,8 @@ div.newParty__fields
         input(name="author" id="author" required minlength="3" placeholder="John")
         label(for="date") Date de l'événement
         input(name="date" id="date" type="date")
-        button(type="submit").newParty__form--button Créer
+        div.button
+          button(type="submit").newParty__form--button Créer
 
 div.all__boxes
   h1.all_boxes__title Liste des événements
@@ -17,4 +18,4 @@ div.all__boxes
       div.parties__box
         p= party.name
   else
-    p Il n'y a pas d'evenements crees
+    p Il n'y a pas d'evenements crées

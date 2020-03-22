@@ -1,8 +1,8 @@
 @import "./vendors/reset.scss";
 @import "./vendors/variables.scss";
+@import "./vendors/spinner.scss";
 @import "./blocs/newParty.scss";
 @import "./config/medias.scss";
-@import "./vendors/spinner.scss";
 @import "./blocs/boxParties.scss";
 
 @import url("https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap");
@@ -20,4 +20,37 @@ body {
 		color: black;
 		text-decoration: none;
 	}
+}
+
+.item__box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px;
+	padding: 5px;
+	box-shadow: $shadow;
+}
+
+.clipboard {
+	display: flex;
+}
+
+.return {
+	position: absolute;
+	top: 10px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.fade .item__box {
+	transition: all 0.4s ease-out;
+	opacity: 0;
+	height: 2em;
+}
+.fade .item__box.show {
+	opacity: 1;
 }
