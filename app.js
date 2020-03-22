@@ -34,7 +34,7 @@ app.patch("/party/:id", function(req, res) {
 	const id = req.params.id;
 	axios
 		.patch(`${process.env.API_URL}/party/${id}`, req.body)
-		.then(({ data }) => res.redirect(`/`))
+		.then(({ data }) => res.redirect(`/party/${id}`))
 		.catch(err => res.send(err));
 });
 
@@ -53,7 +53,6 @@ app.get("/party/:id", function(req, res) {
 				url: `${process.env.FRONT_URL}/party/${data._id}`,
 				urlApi: `https://quiprendquoi-api.benjaminadida.fr/party/${data._id}`,
 				baseUrl: process.env.FRONT_URL,
-
 			}),
 		)
 		.catch(err => console.log(err));

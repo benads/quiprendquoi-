@@ -7999,9 +7999,15 @@ var createElement=function(a,b,c){var d=document.createElement("div");d.setAttri
 e.appendChild(d),setTimeout(function(){d.className+=" show"},100)};
 
 },{"babel-core/register":1,"babel-polyfill":2}],338:[function(require,module,exports){
-"use strict";"undefined"!=typeof party&&localStorage.setItem(location.href,party.name);
+"use strict";var closeModal=document.querySelector("#closeModal"),nameModify=document.querySelector("#nameModify"),authorModify=document.querySelector("#authorModify"),dateModify=document.querySelector("#dateModify"),btnUpdate=document.querySelector("#btnUpdate");closeModal.addEventListener("click",function(){modal.style.display="none"});// Get the modal
+var modal=document.getElementById("myModal"),btn=document.getElementById("btnModal");// Get the button that opens the modal
+// When the user clicks anywhere outside of the modal, close it
+btn.addEventListener("click",function(){modal.style.display="block",fetch(btn.getAttribute("data-url")).then(function(a){a.json().then(function(a){nameModify.setAttribute("value",a.name),authorModify.setAttribute("value",a.author)})})}),window.onclick=function(a){a.target==modal&&(modal.style.display="none")};
 
 },{}],339:[function(require,module,exports){
+"use strict";"undefined"!=typeof party&&localStorage.setItem(location.href,party.name);
+
+},{}],340:[function(require,module,exports){
 "use strict";var _this=void 0;navigator.share?document.querySelectorAll("[data-share-url]").forEach(function(a){var b=document.createElement("button");b.innerHTML="Partager",a.parentNode.append(b),b.addEventListener("click",shareLink.bind(_this,a))}):console.log("Sharing is not avalaible");function shareLink(a){navigator.share({title:a.getAttribute("data-share-title"),text:a.getAttribute("data-share-text"),url:a.getAttribute("data-share-url")})}
 
-},{}]},{},[334,335,336,337,338,339]);
+},{}]},{},[334,335,336,337,338,339,340]);
