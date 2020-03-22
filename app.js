@@ -22,7 +22,7 @@ app.get("/", function(req, res) {
 		.get(`${process.env.API_URL}/party`)
 		.then(({ data }) => {
 			res.render("index", {
-				url: process.env.FRONT_URL,
+				baseUrl: process.env.FRONT_URL,
 				parties: data,
 				title: "Accueil",
 			});
@@ -52,6 +52,8 @@ app.get("/party/:id", function(req, res) {
 				urlModif: `/party/${data._id}?_method=PATCH`,
 				url: `${process.env.FRONT_URL}/party/${data._id}`,
 				urlApi: `https://quiprendquoi-api.benjaminadida.fr/party/${data._id}`,
+				baseUrl: process.env.FRONT_URL,
+
 			}),
 		)
 		.catch(err => console.log(err));

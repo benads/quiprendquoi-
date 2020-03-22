@@ -33,32 +33,33 @@ setInterval(() => {
 					if (index === item_created) {
 						// Send notification if user accept
 						new Notification(`Un nouvel item à été ajouté : ${item.name}`);
-						createElement(item._id, item.name);
+						console.log(item.user);
+						createElement(item._id, item.name, item.user);
 					}
 				});
 			}
 		})
 		.then(() => {
-			document.querySelector(".lds-dual-ring").classList.remove("isVisible");
-			document.querySelector(".lds-dual-ring").classList.add("none");
+			document.querySelector(".lds-ellipsis").classList.remove("isVisible");
+			document.querySelector(".lds-ellipsis").classList.add("none");
 		});
 	repeatCall.pop();
 }, 5000);
 
 // Create element if new item added
-let createElement = (itemId, itemName) => {
-	console.log(`${url}/${itemId}?_method=DELETE`);
-	let newDiv = document.createElement("div");
-	let form = document.createElement("form");
-	form.setAttribute("method", "post");
-	form.setAttribute("action", `${pathName}/items/${itemId}?_method=DELETE`);
-	let button = document.createElement("button");
-	button.innerHTML = "Supprimez";
-	button.setAttribute("type", "submit");
-	form.appendChild(button);
-	let newContent = document.createTextNode(itemName);
-	newDiv.appendChild(newContent);
-	newDiv.appendChild(form);
+let createElement = (itemId, itemName, itemUser) => {
+	var div = document.createElement("div");
+	div.setAttribute("class", "item__box");
+	div.innerHTML = `
+		<p>${itemName}</p>
+		<span>ecrit par ${itemUser}</span>
+		<form method="post" action="${pathName}/items/${itemId}?_method=DELETE">
+			<button data-url="${itemId}" class="btnItem"><img src="/images/delete.svg" style="width:30px"/></button>
+		</form>`;
 	let currentDiv = document.getElementById("lastNotification");
-	currentDiv.appendChild(newDiv);
+	currentDiv.appendChild(div);
+	// Animation
+	setTimeout(function() {
+		div.className = div.className + " show";
+	}, 100);
 };

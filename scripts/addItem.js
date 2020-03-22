@@ -11,12 +11,12 @@ document.querySelector("#btn").addEventListener("click", function(e) {
 		},
 		body: JSON.stringify({
 			name: document.querySelector("#name").value,
-			author: document.querySelector("#user").value,
+			user: document.querySelector("#user").value,
 		}),
 	})
 		.then(() => {
-			document.querySelector(".lds-dual-ring").classList.remove("none");
-			document.querySelector(".lds-dual-ring").classList.add("isVisible");
+			document.querySelector(".lds-ellipsis").classList.remove("none");
+			document.querySelector(".lds-ellipsis").classList.add("isVisible");
 		})
 		.then(() => {
 			console.log("ok");
