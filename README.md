@@ -12,6 +12,7 @@
 - Ajout d'un item (`app.js`)
 - Modifcation d'un événement à travers une modal (`modal.pug`, `modal.js`)
 - Modifcation d'un item lié à un événement à travers une modal (`modalModifyItem.js`, `modalModifyItem.pug`)
+- Suppression d'un événements (`app.js`)
 - Rafraîchissement automatique des items avec _fetch_ (`fetch.js`)
 - Utilisation du localStorage (`fetch.js`)
 - Utilisation de l'API de notification à l'ajout d'un item sur un événement (`fetch.js`)
