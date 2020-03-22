@@ -18,5 +18,8 @@ div.all__boxes
     a(href=baseUrl + "/party/" + party._id)
       div.parties__box
         p= party.name
+        form(method="post" action=`/party/${party._id}?_method=DELETE`)
+              button(class='btnItem')
+                img(src="/images/delete.svg" style="width:30px")
   else
     p Il n'y a pas d'evenements crées
