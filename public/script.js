@@ -7986,8 +7986,8 @@ module.exports = require('./modules/_core');
 "use strict";var partyUrlId=document.querySelector("#btn").getAttribute("data-url"),url="https://quiprendquoi-api.benjaminadida.fr/party/".concat(partyUrlId);document.querySelector("#btn").addEventListener("click",function(){fetch("".concat(url,"/items"),{method:"post",headers:{Accept:"application/json","Content-Type":"application/json"},body:JSON.stringify({name:document.querySelector("#name").value,user:document.querySelector("#user").value})}).then(function(){document.querySelector(".lds-ellipsis").classList.remove("none"),document.querySelector(".lds-ellipsis").classList.add("isVisible")}).then(function(){console.log("ok")})});
 
 },{}],335:[function(require,module,exports){
-"use strict";var _this=void 0;navigator.clipboard?document.querySelectorAll("[data-clipboard]").forEach(function(a){var b=document.querySelector(".clipboard"),c=document.createElement("button"),d=document.createElement("img");// $clipboardEl.parentNode.append($button);
-d.setAttribute("src","/images/copy.svg"),d.style.width="30px",c.appendChild(d),b.appendChild(c),c.addEventListener("click",copyToClipboard.bind(_this,a,c))}):console.warn("Pas de support :(");function copyToClipboard(a,b){navigator.clipboard.writeText(a.getAttribute("data-clipboard")).then(function(){b.innerHTML="Copi\xE9 !",setTimeout(function(){return b.innerHTML="Copier"},2e3)})["catch"](function(a){return console.warn(a)}),b.innerHTML="Copi\xE9 !",setTimeout(function(){return b.innerHTML="Copier"},2e3)}
+"use strict";var _this=void 0;navigator.clipboard?document.querySelectorAll("[data-clipboard]").forEach(function(a){var b=document.querySelector(".clipboard"),c=document.createElement("img");// $clipboardEl.parentNode.append($button);
+c.setAttribute("src","/images/copy.svg"),c.style.width="30px",b.appendChild(c),c.addEventListener("click",copyToClipboard.bind(_this,a,c))}):console.warn("Pas de support :(");function copyToClipboard(a,b){navigator.clipboard.writeText(a.getAttribute("data-clipboard")).then(function(){var a=document.createElement("img");a.setAttribute("src","/images/tick.svg"),a.style.width="30px",setTimeout(function(){return a.setAttribute("src","/images/copy.svg")},2e3)})["catch"](function(a){return console.warn(a)}),b.setAttribute("src","/images/tick.svg"),setTimeout(function(){return b.setAttribute("src","/images/copy.svg")},2e3)}
 
 },{}],336:[function(require,module,exports){
 "use strict";var partyUrlId=document.querySelector("#btn").getAttribute("data-url"),url="https://quiprendquoi-api.benjaminadida.fr/party/".concat(partyUrlId);setInterval(function(){for(var a=document.querySelectorAll(".btnItem"),b=function(b){a[b].addEventListener("click",function(){fetch("".concat(url,"/items/").concat(a[b].getAttribute("data-url")),{method:"delete"})})},c=0;c<a.length;c++)b(c)},100);
@@ -7999,9 +7999,15 @@ var createElement=function(a,b,c){var d=document.createElement("div");d.setAttri
 e.appendChild(d),setTimeout(function(){d.className+=" show"},100)};
 
 },{"babel-core/register":1,"babel-polyfill":2}],338:[function(require,module,exports){
-"use strict";"undefined"!=typeof party&&localStorage.setItem(location.href,party.name);
+"use strict";var closeModal=document.querySelector("#closeModal"),nameModify=document.querySelector("#nameModify"),authorModify=document.querySelector("#authorModify"),dateModify=document.querySelector("#dateModify"),btnUpdate=document.querySelector("#btnUpdate");closeModal.addEventListener("click",function(){modal.style.display="none"});// Get the modal
+var modal=document.getElementById("myModal"),btn=document.getElementById("btnModal");// Get the button that opens the modal
+// When the user clicks anywhere outside of the modal, close it
+btn.addEventListener("click",function(){modal.style.display="block",fetch(btn.getAttribute("data-url")).then(function(a){a.json().then(function(a){nameModify.setAttribute("value",a.name),authorModify.setAttribute("value",a.author)})})}),window.onclick=function(a){a.target==modal&&(modal.style.display="none")};
 
 },{}],339:[function(require,module,exports){
+"use strict";"undefined"!=typeof party&&localStorage.setItem(location.href,party.name);
+
+},{}],340:[function(require,module,exports){
 "use strict";var _this=void 0;navigator.share?document.querySelectorAll("[data-share-url]").forEach(function(a){var b=document.createElement("button");b.innerHTML="Partager",a.parentNode.append(b),b.addEventListener("click",shareLink.bind(_this,a))}):console.log("Sharing is not avalaible");function shareLink(a){navigator.share({title:a.getAttribute("data-share-title"),text:a.getAttribute("data-share-text"),url:a.getAttribute("data-share-url")})}
 
-},{}]},{},[334,335,336,337,338,339]);
+},{}]},{},[334,335,336,337,338,339,340]);
