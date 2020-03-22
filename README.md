@@ -22,8 +22,8 @@ _Quelques exemples (voir le TP)_
 - Ajout d'un item avec fetch (`addItem.js`)
 - Suppression d'un item avec fetch (`deleteItem.js`)
 - Meilleure présentation visuelle de façon général (j'ai fais ce que j'ai pu, j'ai du mal avec la design :( ) (`*.scss`)
-- Mise en prod de l'application [ici](quiprendquoi.benjaminadida.fr)
-- Mise en prod de l'API avec de légère modifs [ici](quiprendquoi-api.benjaminadida.fr)
+- Mise en prod de l'application [ici](https://quiprendquoi.benjaminadida.fr)
+- Mise en prod de l'API avec de légère modifs [ici](https://quiprendquoi-api.benjaminadida.fr)
 
 ## Article personnel
 
