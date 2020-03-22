@@ -1,19 +1,37 @@
-@import '../config/medias.scss'; 
+@import "../config/medias.scss";
 
 .newParty__fields {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
+	box-shadow: $shadow;
 
-  @include medium {
-    display: grid;
-    grid-template-columns: 175px 1fr;
-    grid-gap: 5px;
-    max-width: 500px;
-  }
+	.newParty__fields__title {
+		font-size: 20px;
+	}
 
-  label {
-    display: block;
-       @include medium {   
-          place-self: center end;
-     }
-  }
+	// @include medium {
+	// 	display: grid;
+	// 	grid-template-columns: 175px 1fr;
+	// 	grid-gap: 5px;
+	// 	max-width: 500px;
+	// }
+
+	input {
+		border: 0.8px solid lightgrey;
+		padding: 15px 20px;
+		border-radius: 25px;
+		background: rgba(255, 255, 255, 0.1);
+		width: 100%;
+	}
+
+	label {
+		display: block;
+		@include medium {
+			place-self: center end;
+		}
+	}
+	.newParty__form--button {
+		margin: 20px;
+		width: 200px;
+		border-radius: 25px;
+	}
 }

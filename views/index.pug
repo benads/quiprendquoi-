@@ -1,16 +1,20 @@
 include ../partials/header.pug
-h1 Qui prend quoi ?
-h2 Créer un événement
-form(method="post" action="/party").newParty
-  div.newParty__fields
-    label(for="name") Nom de l'événement
-    input(name="name" id="name" required minlength="3" placeholder="Nouvel an")
-    label(for="author" required) Votre pseudo
-    input(name="author" id="author" required minlength="3" placeholder="John")
-    label(for="date") Date de l'événement
-    input(name="date" id="date" type="date")
-  button(type="submit") Créer
+div.newParty__fields
+    h2.newParty__fields__title Créer un événement
+    form(method="post" action="/party").newParty__form
+        label(for="name") Nom de l'événement
+        input(name="name" id="name" required minlength="3" placeholder="Nom de l'événement")
+        label(for="author" required) Votre pseudo
+        input(name="author" id="author" required minlength="3" placeholder="John")
+        label(for="date") Date de l'événement
+        input(name="date" id="date" type="date")
+        button(type="submit").newParty__form--button Créer
 
-each party in parties
-  a(href=url + "/party/" + party._id)
-    li= party.name
+div.all__boxes
+  h1.all_boxes__title Liste des événements
+  each party in parties
+    a(href=baseUrl + "/party/" + party._id)
+      div.parties__box
+        p= party.name
+  else
+    p Il n'y a pas d'evenements crees

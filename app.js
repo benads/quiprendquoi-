@@ -22,7 +22,7 @@ app.get("/", function(req, res) {
 		.get(`${process.env.API_URL}/party`)
 		.then(({ data }) => {
 			res.render("index", {
-				url: process.env.FRONT_URL,
+				baseUrl: process.env.FRONT_URL,
 				parties: data,
 				title: "Accueil",
 			});
@@ -42,6 +42,7 @@ app.get("/party/:id", function(req, res) {
 				title: data.name,
 				items: data.items,
 				url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`,
+				baseUrl: process.env.FRONT_URL,
 			}),
 		)
 		.catch(err => console.log(err));
