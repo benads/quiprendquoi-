@@ -22,10 +22,12 @@
 		}
 	}
 }
+
 .newParty__form--button {
 	margin: 20px;
 	width: 200px;
 	border-radius: 25px;
+	border: 0.8px solid black;
 }
 
 input {
@@ -34,4 +36,10 @@ input {
 	border-radius: 25px;
 	background: rgba(255, 255, 255, 0.1);
 	width: 100%;
+}
+
+.newParty__form--item {
+	box-shadow: $shadow;
+	margin: 40px;
+	padding: 10px;
 }
