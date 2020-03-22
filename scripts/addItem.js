@@ -15,8 +15,8 @@ document.querySelector("#btn").addEventListener("click", function(e) {
 		}),
 	})
 		.then(() => {
-			document.querySelector(".lds-dual-ring").classList.remove("none");
-			document.querySelector(".lds-dual-ring").classList.add("isVisible");
+			document.querySelector(".lds-ellipsis").classList.remove("none");
+			document.querySelector(".lds-ellipsis").classList.add("isVisible");
 		})
 		.then(() => {
 			console.log("ok");
