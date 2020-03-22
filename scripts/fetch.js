@@ -26,14 +26,12 @@ setInterval(() => {
 			) {
 				localStorage.setItem("initData", repeatCall.toString());
 				let item_created = response.items.length - 1;
-				console.log("item_created");
 				// Notification authorization
 				Notification.requestPermission();
 				response.items.map((item, index) => {
 					if (index === item_created) {
 						// Send notification if user accept
 						new Notification(`Un nouvel item à été ajouté : ${item.name}`);
-						console.log(item.user);
 						createElement(item._id, item.name, item.user);
 					}
 				});
@@ -53,9 +51,14 @@ let createElement = (itemId, itemName, itemUser) => {
 	div.innerHTML = `
 		<p>${itemName}</p>
 		<span>ecrit par ${itemUser}</span>
-		<form method="post" action="${pathName}/items/${itemId}?_method=DELETE">
-			<button data-url="${itemId}" class="btnItem"><img src="/images/delete.svg" style="width:30px"/></button>
-		</form>`;
+		<div class="icons">
+			<button data-urlItem="/party/${party._id}/items/${itemId}?_method=PATCH" class='btnItemModify' data-url="https://quiprendquoi-api.benjaminadida.fr/party/${party._id}/items/${itemId}">
+				<img src="/images/edit.svg" style="width:30px"/>
+			</button>
+			<form method="post" action="${pathName}/items/${itemId}?_method=DELETE">
+				<button data-url="${itemId}" class="btnItem"><img src="/images/delete.svg" style="width:30px"/></button>
+			</form>
+		</div>`;
 	let currentDiv = document.getElementById("lastNotification");
 	currentDiv.appendChild(div);
 	// Animation

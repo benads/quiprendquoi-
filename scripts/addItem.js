@@ -18,7 +18,4 @@ document.querySelector("#btn").addEventListener("click", function(e) {
 			document.querySelector(".lds-ellipsis").classList.remove("none");
 			document.querySelector(".lds-ellipsis").classList.add("isVisible");
 		})
-		.then(() => {
-			console.log("ok");
-		});
 });

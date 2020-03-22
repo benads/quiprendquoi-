@@ -50,6 +50,7 @@ app.get("/party/:id", function(req, res) {
 				title: data.name,
 				items: data.items,
 				urlModif: `/party/${data._id}?_method=PATCH`,
+				urlModifItem: `/party/${data._id}/items`,
 				url: `${process.env.FRONT_URL}/party/${data._id}`,
 				urlApi: `https://quiprendquoi-api.benjaminadida.fr/party/${data._id}`,
 				baseUrl: process.env.FRONT_URL,
@@ -62,6 +63,15 @@ app.post("/party", function(req, res) {
 	axios
 		.post(`${process.env.API_URL}/party`, req.body)
 		.then(({ data }) => res.redirect(`/party/${data._id}`))
+		.catch(err => res.send(err));
+});
+
+app.patch("/party/:id/items/:itemId", function(req, res) {
+	const id = req.params.id;
+	const itemId = req.params.itemId;
+	axios
+		.patch(`${process.env.API_URL}/party/${id}/items/${itemId}`, req.body)
+		.then(({ data }) => res.redirect(`/party/${id}`))
 		.catch(err => res.send(err));
 });
 

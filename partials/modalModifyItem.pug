@@ -1,0 +1,19 @@
+<div id="myModalModify" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    div
+      div.bg-under-modal
+        a#closeModalModify
+          img(src="/images/close.svg").closeIcon 
+        div
+        form(method="post").newParty.itemModify
+            div
+                label(for="name") Nom de l'événement
+                input(name="name" required minlength="3" placeholder="Nouvel an")
+                label(for="user" required) Votre pseudo
+                input(name="user" required minlength="3" placeholder="John")
+                div.button
+                  button(type="submit").btn.rounded 
+                    span.text-green Créer
+  </div>
+</div>
