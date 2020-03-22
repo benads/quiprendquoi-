@@ -30,7 +30,7 @@ _Quelques exemples (voir le TP)_
 J'ai choisi de présenter une des fonctionnalités qui a été interessante a réaliser.
 Il s'agit du rafraîchissement automatique, le but est de pouvoir, si changement il y a, de pouvoir aller modifier la liste des items sans avoir besoin de rafraichir la page. Cela peut etre util pour un utilisateur entre autre car si un autre utilisateur saisis un item sur l'evenement en question en meme temps que lui, le premier pourra donc le constater directement. 
 Dans un second temps, si l'utilisateur accepte de recevoir les notifcations, il recevra une notification comme quoi un item a été ajouté à cet evenement.
-`
+```
 setInterval(() => {
 	fetch(url)
 		.then(response => response.json())
@@ -61,7 +61,8 @@ setInterval(() => {
 		});
 	repeatCall.pop();
 }, 5000);
-`
+```
+
 Ceci est la fonction qui me permet de réaliser cela. La logique à laquelle j'ai pensé a été de stocker dans le `localStorage`, le tableau initial tel qu'il est quand l'utilisateur arrive sur la page (`initData`). Dans un second temps je crée un autre tableau (`repeatCall`) dans lequel je vais stocker un tableau que je récupere toutes les 5 secondes via mon call API. Ainsi toutes les 5 secondes (`repeatCall`) se reinitialisera afin de pourvoir comparer les differences avec `initData` dans le `localStorage`, à la moindre difference cela creera le html qui aura pour contenu le nouvelle item, et aussi envoyer une notification.
 
 Ce que je pourrais améliorer, serait d'implementer des websockets, car le systeme de faire un call API toutes les 5 secondes n'est pas adapté dans un cas réel.
