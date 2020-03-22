@@ -33,7 +33,8 @@ setInterval(() => {
 					if (index === item_created) {
 						// Send notification if user accept
 						new Notification(`Un nouvel item à été ajouté : ${item.name}`);
-						createElement(item._id, item.name);
+						console.log(item.user);
+						createElement(item._id, item.name, item.user);
 					}
 				});
 			}
@@ -46,11 +47,12 @@ setInterval(() => {
 }, 5000);
 
 // Create element if new item added
-let createElement = (itemId, itemName) => {
+let createElement = (itemId, itemName, itemUser) => {
 	var div = document.createElement("div");
 	div.setAttribute("class", "item__box");
 	div.innerHTML = `
 		<p>${itemName}</p>
+		<span>ecrit par ${itemUser}</span>
 		<form method="post" action="${pathName}/items/${itemId}?_method=DELETE">
 			<button data-url="${itemId}" class="btnItem"><img src="/images/delete.svg" style="width:30px"/></button>
 		</form>`;

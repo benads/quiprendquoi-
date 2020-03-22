@@ -11,7 +11,7 @@ document.querySelector("#btn").addEventListener("click", function(e) {
 		},
 		body: JSON.stringify({
 			name: document.querySelector("#name").value,
-			author: document.querySelector("#user").value,
+			user: document.querySelector("#user").value,
 		}),
 	})
 		.then(() => {

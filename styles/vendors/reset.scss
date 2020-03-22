@@ -100,6 +100,11 @@ a {
 button {
 	background-color: transparent;
 	border: none;
+	outline: 0;
+}
+
+input {
+	outline: 0;
 }
 
 /* HTML5 display-role reset for older browsers */
